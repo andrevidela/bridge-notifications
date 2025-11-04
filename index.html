@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Demo - GitHub Pages + Firebase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔔 Notification Demo</h1>
+            <p>Subscribe to receive push notifications and email updates</p>
+        </header>
+
+        <div class="status-bar">
+            <div id="connectionStatus" class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+        </div>
+
+        <main>
+            <!-- Push Notification Section -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>📱 Push Notifications</h2>
+                    <span id="pushStatus" class="badge badge-inactive">Inactive</span>
+                </div>
+                <p>Get instant browser notifications for important updates.</p>
+                
+                <div id="pushNotSupported" class="alert alert-warning" style="display: none;">
+                    ⚠️ Push notifications are not supported in your browser.
+                </div>
+                
+                <div id="pushContent">
+                    <button id="enablePushBtn" class="btn btn-primary">
+                        Enable Push Notifications
+                    </button>
+                    <button id="disablePushBtn" class="btn btn-secondary" style="display: none;">
+                        Disable Push Notifications
+                    </button>
+                    
+                    <div id="pushToken" class="info-box" style="display: none;">
+                        <strong>Your Device Token:</strong>
+                        <code id="tokenText"></code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Email Notification Section -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>📧 Email Notifications</h2>
+                    <span id="emailStatus" class="badge badge-inactive">Not Subscribed</span>
+                </div>
+                <p>Subscribe with your email to receive updates directly in your inbox.</p>
+                
+                <form id="emailForm">
+                    <div class="form-group">
+                        <label for="emailInput">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="emailInput" 
+                            placeholder="your.email@example.com" 
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nameInput">Name (optional)</label>
+                        <input 
+                            type="text" 
+                            id="nameInput" 
+                            placeholder="Your Name"
+                        >
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Subscribe to Email Updates
+                    </button>
+                </form>
+                
+                <div id="emailSuccess" class="alert alert-success" style="display: none;">
+                    ✅ Successfully subscribed! Check your email for confirmation.
+                </div>
+            </section>
+
+            <!-- Test Notifications Section -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>🧪 Test Notifications</h2>
+                </div>
+                <p>Send test notifications to verify everything is working.</p>
+                
+                <div class="button-group">
+                    <button id="testPushBtn" class="btn btn-secondary" disabled>
+                        Test Push Notification
+                    </button>
+                    <button id="testEmailBtn" class="btn btn-secondary" disabled>
+                        Test Email Notification
+                    </button>
+                </div>
+                
+                <div id="testResult" class="info-box" style="display: none;"></div>
+            </section>
+
+            <!-- Admin Section (for sending notifications to all users) -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>👨‍💼 Send Notification to All Users</h2>
+                </div>
+                <p>Send a notification to all subscribed users (requires admin access).</p>
+                
+                <form id="adminForm">
+                    <div class="form-group">
+                        <label for="notificationTitle">Title</label>
+                        <input 
+                            type="text" 
+                            id="notificationTitle" 
+                            placeholder="Important Update" 
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notificationMessage">Message</label>
+                        <textarea 
+                            id="notificationMessage" 
+                            placeholder="Your message here..." 
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="sendPushToAll" checked>
+                            Send Push Notification
+                        </label>
+                        <label>
+                            <input type="checkbox" id="sendEmailToAll">
+                            Send Email Notification
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Send to All Users
+                    </button>
+                </form>
+                
+                <div id="adminResult" class="alert" style="display: none;"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with GitHub Pages + Firebase | <a href="https://github.com" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

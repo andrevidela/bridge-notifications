@@ -18,7 +18,7 @@
         <div class="status-bar">
             <div id="connectionStatus" class="status-indicator">
                 <span class="status-dot"></span>
-                <span class="status-text">Connecting...</span>
+                <span class="status-text">Obtaining Bridge Status...</span>
             </div>
         </div>
 
@@ -88,77 +88,6 @@
                 </div>
             </section>
 
-            <!-- Test Notifications Section -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>🧪 Test Notifications</h2>
-                </div>
-                <p>Send test notifications to verify everything is working.</p>
-                
-                <div class="button-group">
-                    <button id="testPushBtn" class="btn btn-secondary" disabled>
-                        Test Push Notification
-                    </button>
-                    <button id="testEmailBtn" class="btn btn-secondary" disabled>
-                        Test Email Notification
-                    </button>
-                </div>
-                
-                <div id="testResult" class="info-box" style="display: none;"></div>
-            </section>
-
-            <!-- Admin Section (for sending notifications to all users) -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>👨‍💼 Send Notification to All Users</h2>
-                </div>
-                <p>Send a notification to all subscribed users (requires admin access).</p>
-                
-                <form id="adminForm">
-                    <div class="form-group">
-                        <label for="notificationTitle">Title</label>
-                        <input 
-                            type="text" 
-                            id="notificationTitle" 
-                            placeholder="Important Update" 
-                            required
-                        >
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="notificationMessage">Message</label>
-                        <textarea 
-                            id="notificationMessage" 
-                            placeholder="Your message here..." 
-                            rows="4"
-                            required
-                        ></textarea>
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <label>
-                            <input type="checkbox" id="sendPushToAll" checked>
-                            Send Push Notification
-                        </label>
-                        <label>
-                            <input type="checkbox" id="sendEmailToAll">
-                            Send Email Notification
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">
-                        Send to All Users
-                    </button>
-                </form>
-                
-                <div id="adminResult" class="alert" style="display: none;"></div>
-            </section>
-        </main>
-
-        <footer>
-            <p>Built with GitHub Pages + Firebase | <a href="https://github.com" target="_blank">View on GitHub</a></p>
-        </footer>
-    </div>
 
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>

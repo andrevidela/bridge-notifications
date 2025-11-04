@@ -29,7 +29,7 @@ let currentEmail = null;
 // Initialize app
 async function initializeApp() {
     try {
-        updateConnectionStatus('connected', 'Connected to Firebase');
+        updateConnectionStatus('connected', 'The Bridge is Open!');
         
         // Check push notification support
         if (!('Notification' in window) || !messaging) {

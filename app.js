@@ -46,7 +46,7 @@ async function initializeApp() {
         
     } catch (error) {
         console.error('Initialization error:', error);
-        updateConnectionStatus('error', 'Connection error');
+        updateConnectionStatus('error', 'The Bridge is Closed');
     }
 }
 

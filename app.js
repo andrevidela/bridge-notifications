@@ -1,6 +1,4 @@
 // Main Application Logic
-const { messaging, db } = window.firebaseServices;
-
 const messagingKey = 'BC5UcSx7UFFNgKH2-1or7fqdpxH_BjaAAUITQv63AgZl1m4M5quj7xoTs59NEMhqrKAB2egaBqMmR1ZD4xPDgL0'
 
 // DOM Elements

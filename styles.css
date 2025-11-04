@@ -24,30 +24,82 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Header with Background Image */
+.hero-header {
+    position: relative;
+    height: 50vh; /* 50% of viewport height */
+    min-height: 400px; /* Minimum height for small screens */
+    display: flex;
+    align-items: flex-end;  
+    justify-content: center;
+    overflow: hidden;
+    
+    /* Background image styling */
+    background-image: url('background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Optional: Add overlay for better text readability 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+        z-index: 1;
+    }*/
+}
+
+/* Alternative: Use gradient only (no image)  */
+.hero-header.gradient-only {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-}
-
-header {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
-    padding: 20px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-header p {
-    font-size: 1.1rem;
-    opacity: 0.95;
+    padding: 40px 20px;
 }
 
 .status-bar {
@@ -279,20 +331,38 @@ main {
 
 footer {
     text-align: center;
-    color: white;
+    color: #666;
     margin-top: 40px;
-    padding: 20px;
-    opacity: 0.9;
+    padding: 30px 20px;
+    background: white;
+    border-top: 1px solid var(--border-color);
 }
 
 footer a {
-    color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
     text-decoration: underline;
 }
 
 @media (max-width: 600px) {
-    header h1 {
+    .hero-header {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .hero-content h1 {
         font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 20px 15px;
     }
     
     .card {

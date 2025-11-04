@@ -212,7 +212,7 @@ async function sendTestPush() {
         elements.testResult.textContent = '⏳ Sending test push notification...';
         
         // Call cloud function to send notification
-        const response = await fetch('YOUR_CLOUD_FUNCTION_URL/sendTestNotification', {
+        const response = await fetch('https://us-central1-bridge-notifications.cloudfunctions.net/sendTestNotification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -294,7 +294,7 @@ async function sendToAllUsers(event) {
         elements.adminResult.className = 'alert';
         
         // Call cloud function to send to all users
-        const response = await fetch('YOUR_CLOUD_FUNCTION_URL/sendToAllUsers', {
+        const response = await fetch('https://us-central1-bridge-notifications.cloudfunctions.net/sendToAllUsers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -2,8 +2,6 @@
 // Replace these values with your actual Firebase project credentials
 // Get these from: Firebase Console > Project Settings > General > Your apps
 
-import { initializeApp } from "firebase/app";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDvmtuC1C4LCF8jSxHnjD8CNYbAbtZcj3k",
   authDomain: "bridge-notifications.firebaseapp.com",
